@@ -17,7 +17,14 @@ var inquirer = require('inquirer');
 function Word(nextWord) {
     //An array of `new` Letter objects representing the letters of the underlying word
     this.characters = [];
-    this.nextWord = nextWord;
+    this.nextWord = nextWord 
+        for(var i = 0; i < this.nextWord.length; i++) {
+            //console.log("hello looping here", );
+            var testLetter = new Letter (this.nextWord[i]);
+            //console.log(testLetter);
+            this.characters.push(testLetter);
+        }
+    
     //A function that returns a string representing the word. This should call the 
     //function on each letter object (the first function defined in `Letter.js`) 
     //that displays the character or an underscore and concatenate those together.
@@ -33,7 +40,9 @@ function Word(nextWord) {
     //A function that takes a character as an argument and calls the guess function 
     //on each letter object (the second function defined in `Letter.js`)
 }
-
+//var testLetter = new Letter ('a');
+var testWord = new Word ("house");
+console.log(testWord);
 
 
 //export Word constructor to make available for index.js 
