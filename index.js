@@ -9,19 +9,21 @@
 var Word = require("./word.js");
 var inquirer = require('inquirer');
 
+var doesRandomWork = new Word (this.nextRandomWord);
 
-// Would it make sense to make the entire logic within an object?
-var wordGuessGame = {
-  wordBank: ['SAGE', 'PAPRIKA', 'GARAM MASALA', 'SAFFRON', 'TUMERIC', 'ROSEMARY', 'CARDAMOM', 'CORIANDER', 'FENUGREEK'],
-  randomWord = Math.floor(Math.random()*this.wordBank.length), /* randomWord or this.nextWord ??? */ 
-  guessesRemaining: 9,
-  newGame = function() {
-
-  },
-  startGame = function() {
+//var wordGuessGame = {
+  var wordBank = ['SAGE', 'PAPRIKA', 'GARAM MASALA', 'SAFFRON', 'TUMERIC', 'ROSEMARY', 'CARDAMOM', 'CORIANDER', 'FENUGREEK'];
+  var randomWord = wordBank[Math.floor(Math.random() * wordBank.length)]; 
+  var guessesRemaining = 9;
+  
+  function newGame() {
 
   }
-}
+
+  function startGame() {
+
+  }
+
 
 
 inquirer.prompt([
@@ -54,7 +56,12 @@ function guessALetter() {
     }
   ]).then(answers => {
     console.log("answer1", answers);
-    guessALetter()
+    guessThisWord();
+    guessALetter();
       
   });
+}
+
+function guessThisWord () {
+  console.log(randomWord.split(''));
 }
